@@ -1,9 +1,12 @@
 import React from 'react'
+import Counter from './components/counter'
 
 function App() {
   return (
-    <div>
-      <h1 className='bg-red-600 text-'>Dharmendra</h1>
+    <div className='flex justify-center items-center'>
+
+    <Counter/>
+
     </div>
   )
 }
