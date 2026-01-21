@@ -4,7 +4,7 @@ import Tabs from './components/Tabs'
 
 function App() {
   return (
-    <div className='h-screen w-full bg-gray-900'>
+    <div className='h-screen w-full text-white bg-gray-900'>
       <SearchBar/>
       <Tabs/>
       <ResultGrid/>
