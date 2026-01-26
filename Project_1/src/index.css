@@ -7,3 +7,9 @@ body{
 #bottom{
     background: linear-gradient(transparent,black);
 }
+
+:root{
+    --c1:rgb(63, 154, 174);
+    --c2:rgb(250, 243, 225);
+    --c3:rgb(245, 231, 198);
+}
