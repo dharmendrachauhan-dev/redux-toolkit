@@ -1,17 +1,18 @@
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addCollection, addedToast } from "../redux/features/CollectionSplices";
+import {Link} from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { removeCollection, removeToast } from '../redux/features/CollectionSplices'
 
-function ResultCard({ item }) {
-  const dispatch = useDispatch();
+function CollectionCard({item}) {
 
-  const addToSave = () => {
-    dispatch(addCollection(item));
-    dispatch(addedToast());
-  };
+  const dispatch = useDispatch()
+
+  const removeFromCollection = (item) => {
+    dispatch(removeCollection(item.id))
+    dispatch(removeToast())
+  }
 
   return (
-    <div className="w-[30vw] h-[50vh] relative overflow-hidden rounded">
+       <div className="w-[30vw] h-[50vh] relative overflow-hidden rounded">
       <Link to={item.links} target="_blank" className="h-full cursor-default">
         {item.type == "photo" ? (
           <img
@@ -37,18 +38,21 @@ function ResultCard({ item }) {
 
       <div
         id="bottom"
-        className="flex items-center justify-between px-2 py-10 w-full absolute bottom-0"
+        className="flex items-center justify-between px-6 py-10 w-full absolute bottom-0"
       >
         <h2 className="text-sm font-semibold uppercase">{item.title}</h2>
         <button
-          onClick={addToSave}
-          className="bg-indigo-500 rounded px-5 py-2 hover:scale-90 transition-all cursor-pointer font-medium"
+        onClick={()=>{
+            return removeFromCollection(item)
+        }}
+          className="bg-indigo-500 rounded px-3 py-2 font-medium cursor-pointer"
         >
-          Save
+          Removed
         </button>
       </div>
     </div>
-  );
+   
+  )
 }
 
-export default ResultCard;
+export default CollectionCard

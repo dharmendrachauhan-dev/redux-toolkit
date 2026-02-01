@@ -5,10 +5,13 @@ import Tabs from '../components/Tabs'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import CollectionCard from '../components/CollectionCard'
+import CollectionPages from './CollectionPages'
 
 function HomePage() {
 
   const [search, setSearchBar] = useState(false)
+  const [showCollection, setShowCollection] = useState(false)
 
   const openSerchBar = () => {
     setSearchBar(!search)
@@ -47,6 +50,7 @@ function HomePage() {
         <Tabs/>
         <ResultGrid/>
       </div>}
+
       
     </div>
   )
